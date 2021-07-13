@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Color Codes */
+/*  083D77 Indigo
+    89B0AE Morning Blue
+    BEE3DB Powder Blue
+    FAF9F9 Cultured
+    FFD6BA Apricot 
+*/
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: HelveticaNeue, Helvetica, sans-serif;
+}

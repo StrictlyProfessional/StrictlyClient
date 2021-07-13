@@ -1,0 +1,11 @@
+
+<div>
+    <app-nav></app-nav>
+    <h1>Leaderboard</h1>
+    <button (click)="getUsers()">Test123</button>
+        <div *ngIf="isLoaded">
+            <div *ngFor="let user of users">
+                <h3>{{user.id}}</h3>       
+        </div>
+    </div>
+</div>
