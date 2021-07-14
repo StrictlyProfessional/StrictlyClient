@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Workout } from 'src/app/classes/classes';
 import { WorkoutService } from 'src/app/services/workout/workout.service';
 
@@ -14,6 +14,8 @@ export class WorkoutComponent implements OnInit {
   isLoaded: boolean = true;
 
   constructor(private WorkoutService: WorkoutService) { }
+
+  @Input() workoutArr;
 
   ngOnInit(): void {
     this.getWorkouts();
