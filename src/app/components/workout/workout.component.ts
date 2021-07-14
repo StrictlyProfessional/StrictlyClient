@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Workout } from 'src/app/classes/classes';
+import { WorkoutService } from 'src/app/services/workout/workout.service';
 
 @Component({
   selector: 'app-workout',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkoutComponent implements OnInit {
 
-  constructor() { }
+  private error = "lol didnt work";
+  workouts: Workout[] = [];
+  isLoaded: boolean = true;
+
+  constructor(private WorkoutService: WorkoutService) { }
 
   ngOnInit(): void {
+    this.getWorkouts();
   }
-
+  getWorkouts() {
+    this.WorkoutService.getWorkouts().subscribe(
+      allWorkouts => this.workouts = allWorkouts,
+      err => this.error = err
+    );
+    this.isLoaded = true;
+  }
 }

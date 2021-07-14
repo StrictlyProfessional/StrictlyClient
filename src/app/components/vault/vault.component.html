@@ -1,4 +1,22 @@
 <div>
     <app-nav></app-nav>
     <h1>The Vault</h1>
+    <!-- <button >Test123</button> -->
+    <!-- <div *ngFor="let item of user | keyvalue">
+    <p>{{ item.key }}:{{ item.value }}</p>
+    </div> -->
+    <h3>Username: {{ user?.username }}</h3>
+    <h3>Your Level: {{ user?.userLevel }}</h3>
+    <h3>Your Workouts:</h3>
+    <div *ngFor="let workout of user?.workouts">
+      <h3>Name: {{ workout?.name }}</h3>
+      <div *ngFor="let exercise of workout?.exercises">
+        <p>Exercise: {{ exercise?.name }}: {{ exercise?.description }}</p>
+      </div>
+        <br />
+        <div *ngFor="let custExercise of workout?.customExercises">
+          <p>Exercise: {{ custExercise?.name }}: {{ custExercise?.description }}</p>
+        </div>
+        <br />
+    </div>
 </div>
