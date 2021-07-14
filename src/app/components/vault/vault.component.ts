@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/classes/classes';
+import { User, Workout } from 'src/app/classes/classes';
 import { VaultService } from 'src/app/services/vault/vault.service';
 
 @Component({
