@@ -4,6 +4,8 @@ export interface User {
     password: string;
     userLevel: number;
     experience: number;
+    workouts: Workout[];
+    customExercises: CustomExercise[];
 }
 
 export interface Exercise {
@@ -23,4 +25,6 @@ export interface CustomExercise {
 export interface Workout {
     id: number;
     name: string;
+    exercises: Exercise[];
+    customExercises: CustomExercise[];
 }
