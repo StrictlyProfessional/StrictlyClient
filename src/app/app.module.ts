@@ -14,6 +14,7 @@ import { LeaderboardCardComponent } from './components/leaderboard-card/leaderbo
 import { HttpClientModule } from '@angular/common/http';
 import { LeaderboardService } from './services/leaderboard/leaderboard.service';
 import { AppRoutingModule } from './app-routing.module';
+import { CustomExerciseComponent } from './components/custom-exercise/custom-exercise.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AppRoutingModule } from './app-routing.module';
     AddexerciseComponent,
     ExerciseComponent,
     WorkoutComponent,
-    LeaderboardCardComponent
+    LeaderboardCardComponent,
+    CustomExerciseComponent
   ],
   imports: [
     BrowserModule,
