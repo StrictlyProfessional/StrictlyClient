@@ -1,4 +1,27 @@
 <div>
     <app-nav></app-nav>
-    <h1>Discovery</h1>
+    <h1><b>Discovery</b></h1>
+        <div *ngIf="isLoaded">
+            <br>
+            <h3>Hello {{user?.username}}</h3>
+            <br>
+            <h3>Here are some exercises for you to check out!</h3>
+            <br>
+            <div *ngFor = "let exercises of exercises">
+                <br>
+                <h3>{{exercises.id}} {{exercises.name}} {{exercises.description}}</h3>
+            </div>
+        </div>
 </div>
+
+<!--
+<div>
+    <app-nav></app-nav>
+    <h1>Discovery</h1>
+    <h3>Hello {{ user?.username }}</h3>
+    <br>
+    <h3>Here are some exercises for you to check out!</h3>
+    <h3>Your Workouts:</h3>
+      <app-workout *ngFor="let workout of user?.workouts" [workoutArr]="workout"></app-workout>
+</div>
+-->
