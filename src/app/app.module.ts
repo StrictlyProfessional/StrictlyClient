@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppComponent } from './app.component';
 import { VaultComponent } from './components/vault/vault.component';
@@ -33,7 +34,8 @@ import { CustomExerciseComponent } from './components/custom-exercise/custom-exe
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [LeaderboardService],
   bootstrap: [AppComponent]
