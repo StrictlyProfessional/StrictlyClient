@@ -1,10 +1,12 @@
 <h1>Login</h1>
 <div class="loginContainer">
-    <label for="username">Username</label><br>
-    <input type="text" placeholder="Username..." id="username" required><br>
-    <label for="password">Password</label><br>
-    <input type="password" placeholder="Password..." id="password" required><br>
-
-    <button id="submitbtn" (click)="getLogin()">Login</button>
-    <button id="registerbtn">Register</button>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+        <label for="username">Username</label><br>
+        <input type="text" placeholder="Username..." id="username" required><br>
+        <label for="password">Password</label><br>
+        <input name="password" type="password" placeholder="Password..." id="password" required><br>
+    
+        <button type="submit" id="submitbtn">Login</button>
+        <button id="registerbtn">Register</button>
+    </form>
 </div>
