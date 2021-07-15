@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { VaultComponent } from './components/vault/vault.component';
@@ -12,9 +15,7 @@ import { AddexerciseComponent } from './components/addexercise/addexercise.compo
 import { ExerciseComponent } from './components/exercise/exercise.component';
 import { WorkoutComponent } from './components/workout/workout.component';
 import { LeaderboardCardComponent } from './components/leaderboard-card/leaderboard-card.component';
-import { HttpClientModule } from '@angular/common/http';
 import { LeaderboardService } from './services/leaderboard/leaderboard.service';
-import { AppRoutingModule } from './app-routing.module';
 import { CustomExerciseComponent } from './components/custom-exercise/custom-exercise.component';
 
 @NgModule({
@@ -33,6 +34,8 @@ import { CustomExerciseComponent } from './components/custom-exercise/custom-exe
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule
