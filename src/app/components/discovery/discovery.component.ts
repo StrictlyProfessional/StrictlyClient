@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Exercise, User } from 'src/app/classes/classes';
+import { ExercisesService } from 'src/app/services/exercises/exercises.service';
 
 @Component({
   selector: 'app-discovery',
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DiscoveryComponent implements OnInit {
 
-  constructor() { }
+  private error = "Error for Discovery Page";
+  user: User;
+  exercises: Exercise[];
+  isLoaded: boolean = false;
+
+  constructor(private ExercisesService: ExercisesService) { }
 
   ngOnInit(): void {
+    this.getUsersById()
+    this.getExercises()
+  }
+
+  getUsersById() {
+    this.ExercisesService.getUsersById().subscribe(
+      SpecificUsers => this.user = SpecificUsers,
+      err => this.error = err
+    );
+    this.isLoaded = true;
+  }
+
+  getExercises() {
+    this.ExercisesService.getExercies().subscribe(
+      AllExercises => this.exercises = AllExercises,
+      err => this.error = err
+    );
+    this.isLoaded = true;
   }
 
 }
