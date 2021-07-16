@@ -1,11 +1,6 @@
-<div>
-  <!-- <div *ngFor="let workout of workouts | keyvalue">
-    <h3>{{ workout.key }}:{{ workout.value }}</h3>
-  </div> -->
-  <!-- <div *ngFor="let workout of workouts"> -->
+<div class="workout">
+  <br />
   <h3>{{ workoutArr?.name }}</h3>
   <app-exercise *ngFor="let exercise of workoutArr.exercises" [exercise]="exercise"></app-exercise>
-  <br />
   <app-custom-exercise *ngFor="let custExercise of workoutArr.customExercises" [custExercise]="custExercise"></app-custom-exercise>
-  <br />
 </div>

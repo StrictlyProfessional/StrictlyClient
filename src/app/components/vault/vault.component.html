@@ -8,5 +8,9 @@
     <h3>Username: {{ user?.username }}</h3>
     <h3>Your Level: {{ user?.userLevel }}</h3>
     <h3>Your Workouts:</h3>
-      <app-workout *ngFor="let workout of user?.workouts" [workoutArr]="workout"></app-workout>
+    <div class="container">
+      <app-workout *ngFor="let workout of user?.workouts" [workoutArr]="workout" class="workout"></app-workout>
+    </div>
+    <br />
+    <button type="button" (click)="doSomething()">Add Workout</button>
 </div>
