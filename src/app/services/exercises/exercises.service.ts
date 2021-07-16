@@ -10,7 +10,7 @@ import { Exercise, User } from 'src/app/classes/classes';
 })
 export class ExercisesService {
   
-  private discoveryURL = 'http://localhost:8080/strictly/users/2'
+  private discoveryURL = 'http://localhost:8080/strictly/users/1'
   private discovery2URL = 'http://localhost:8080/strictly/exercises'
 
   constructor(private http: HttpClient) { }

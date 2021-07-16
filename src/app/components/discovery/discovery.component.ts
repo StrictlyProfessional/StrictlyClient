@@ -13,6 +13,7 @@ export class DiscoveryComponent implements OnInit {
   user: User;
   exercises: Exercise[];
   isLoaded: boolean = false;
+  count: number = 0;
 
   constructor(private ExercisesService: ExercisesService) { }
 
