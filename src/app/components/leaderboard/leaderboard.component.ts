@@ -11,7 +11,7 @@ export class LeaderboardComponent implements OnInit {
 
   private error = "lol didnt work";
   users: User[] = [];
-  isLoaded: boolean = false;
+  isLoaded: boolean = true;
 
   constructor(private LeaderboardService: LeaderboardService) { }
 
