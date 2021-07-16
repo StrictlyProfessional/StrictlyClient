@@ -1,5 +1,6 @@
 div{
     display:flex;
+    flex-direction: row;
     align-items:flext-start;
     flex-wrap:nowrap;
     height:25px;
