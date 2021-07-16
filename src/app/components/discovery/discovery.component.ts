@@ -23,10 +23,13 @@ export class DiscoveryComponent implements OnInit {
   }
 
   getUsersById() {
-    this.ExercisesService.getUsersById().subscribe(
-      SpecificUsers => this.user = SpecificUsers,
-      err => this.error = err
-    );
+    // this.ExercisesService.getUsersById().subscribe(
+    //   SpecificUsers => this.user = SpecificUsers,
+    //   err => this.error = err
+    // );
+    // this.isLoaded = true;
+    
+    this.user = JSON.parse(document.cookie);
     this.isLoaded = true;
   }
 
