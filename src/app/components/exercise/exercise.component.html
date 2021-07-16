@@ -1,7 +1,7 @@
 
 <div class="eCard" (click)="cardClicked()" [@cardFlip]="data.state">
     <div class="face back">
-        <p>test 1</p>
+        <p>{{ exercise.name }}</p>
         <p>{{ exercise.description }}</p>
     </div>
     <div class="face front">
