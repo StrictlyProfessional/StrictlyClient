@@ -36,15 +36,18 @@ export class LoginComponent implements OnInit {
 
   onLogin(): void {
     console.log("it gets here");
-    this.httpClient.post('http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/StrictlyProToDo-0.0.1-SNAPSHOT/strictly/user-login', this.loginForm.value)
+    this.httpClient.post('http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/strictly/user-login', this.loginForm.value)
       .subscribe(
         response => {
           console.log(response);
-          let jsonString = JSON.parse(JSON.stringify(response));
+          let jsonString = JSON.stringify(response);
+          
 
           // Saving userdata as the ID of user
           // CHANGE IF NEEDED
-          document.cookie = 'id=' + jsonString.id;
+          document.cookie = jsonString;
+          console.log(document.cookie);
+          
 
           // To retrieve from cookie
           console.log('cookie retrieve ez: ' + this.getCookie('id'));

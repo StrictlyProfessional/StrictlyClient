@@ -10,7 +10,7 @@ import { User } from 'src/app/classes/classes';
 })
 export class VaultService {
 
-  private vaultURL = `http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/StrictlyProToDo-0.0.1-SNAPSHOT/strictly/vault/${this.getCookie('id')}`;
+  private vaultURL = `http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/strictly/vault/${this.getCookie('id')}`;
 
   constructor(private http: HttpClient) { }
 

@@ -20,10 +20,11 @@ export class VaultComponent implements OnInit {
   }
 
   getUser() {
-    this.VaultService.getUser().subscribe(
-      user => this.user = user,
-      err => this.error = err
-    );
+    this.user = JSON.parse(document.cookie);
+    // this.VaultService.getUser().subscribe(
+    //   user => this.user = user,
+    //   err => this.error = err
+    // );
     this.isLoaded = true;
   }
 
