@@ -20,4 +20,8 @@ export class VaultComponent implements OnInit {
     this.user = JSON.parse(document.cookie);
   }
 
+  doSomething() {
+    
+  }
+
 }

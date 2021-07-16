@@ -30,7 +30,7 @@ import { CustomExerciseComponent } from './components/custom-exercise/custom-exe
     ExerciseComponent,
     WorkoutComponent,
     LeaderboardCardComponent,
-    CustomExerciseComponent
+    CustomExerciseComponent,
   ],
   imports: [
     BrowserModule,
