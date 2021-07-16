@@ -1,1 +1,9 @@
-<p>{{ custExercise.name }}: {{ custExercise.description }}</p>
+<div class="eCard" (click)="cardClicked()" [@cardFlip]="data.state">
+    <div class="face back">
+        <p>{{ custExercise.name }}</p>
+        <p>{{ custExercise.description }}</p>
+    </div>
+    <div class="face front">
+        <p>Back of card</p>
+    </div>
+</div>

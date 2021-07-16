@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/classes/classes';
+import { AdduserComponent } from '../adduser/adduser.component';
 // import { LoginService } from 'src/app/services/login/login.service';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -13,7 +14,8 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
-  
+  reg: boolean = false;
+
   loginForm = this.formBuilder.group({
     username: '',
     password: ''
@@ -73,6 +75,18 @@ export class LoginComponent implements OnInit {
       err => this.error = err
 
     );*/
+  }
+
+  onClick() {
+    if (!(this.reg)) {
+      this.reg = true;
+    } else {
+      this.reg = false;
+    }
+  }
+
+  changeReg(val: boolean) {
+    this.reg = val;
   }
 
   getCookie(cookieKey): string {

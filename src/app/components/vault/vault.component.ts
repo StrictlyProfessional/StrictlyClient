@@ -8,6 +8,7 @@ import { User, Workout } from 'src/app/classes/classes';
 })
 export class VaultComponent implements OnInit {
 
+  addWorkout: boolean = false;
   user: User = null;
 
   constructor() { }
@@ -18,6 +19,10 @@ export class VaultComponent implements OnInit {
 
   getUser() {
     this.user = JSON.parse(document.cookie);
+  }
+
+  changeWorkout(val: boolean) {
+    this.addWorkout = val;
   }
 
 }
