@@ -11,12 +11,12 @@ export class LeaderboardComponent implements OnInit {
 
   private error = "lol didnt work";
   users: User[] = [];
-  isLoaded: boolean = true;
+  isLoaded: boolean = false;
 
   constructor(private LeaderboardService: LeaderboardService) { }
 
   ngOnInit(): void {
-    
+    this.getUsers();
   }
 
   getUsers() {
