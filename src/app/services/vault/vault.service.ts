@@ -10,14 +10,29 @@ import { User } from 'src/app/classes/classes';
 })
 export class VaultService {
 
-  private vaultURL = `http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/StrictlyProToDo-0.0.1-SNAPSHOT/strictly/vault/${localStorage.getItem('loggedInUser')}`;
+  private vaultURL = `http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/StrictlyProToDo-0.0.1-SNAPSHOT/strictly/vault/${this.getCookie('id')}`;
 
   constructor(private http: HttpClient) { }
 
   // get user
   getUser(): Observable<User> {
-    let test = localStorage.getItem('loggedInUser');
-    console.log('this is inside vault ' + test);
+    console.log('this is inside vault ' + this.getCookie('id'));
     return this.http.get<User>(this.vaultURL);
+  }
+
+  getCookie(cookieKey): string {
+    let name = cookieKey + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
   }
 }

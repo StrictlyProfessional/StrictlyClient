@@ -41,12 +41,22 @@ export class LoginComponent implements OnInit {
         response => {
           console.log(response);
           let jsonString = JSON.parse(JSON.stringify(response));
+
+          // Saving userdata as the ID of user
+          // CHANGE IF NEEDED
+          document.cookie = 'id=' + jsonString.id;
+
+          // To retrieve from cookie
+          console.log('cookie retrieve ez: ' + this.getCookie('id'));
+
+          /* Uses localStorage *yuck* *gross*
           // Saving user data as the id CHANGE IF NEEDED
           localStorage.setItem('loggedInUser', jsonString.id);
-          
+
           // To retrieve the user data 
           let halp = localStorage.getItem('loggedInUser');
           console.log(halp);
+          */
 
           this.router.navigate(['vault']);
         },
@@ -60,6 +70,22 @@ export class LoginComponent implements OnInit {
       err => this.error = err
 
     );*/
+  }
+
+  getCookie(cookieKey): string {
+    let name = cookieKey + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
   }
 
   // getLogin(event) {
