@@ -1,5 +1,22 @@
 <div>
     <app-nav></app-nav>
+<<<<<<< HEAD
+    <div class="addWorkout">
+      <button type="button" (click)="changeWorkout(true)">Add Workout</button>
+      <app-addworkout *ngIf="addWorkout" (onWorkout)="changeWorkout($event)"></app-addworkout>
+    </div>
+    <div>
+      <h1>The Vault</h1>
+      <!-- <button >Test123</button> -->
+      <!-- <div *ngFor="let item of user | keyvalue">
+      <p>{{ item.key }}:{{ item.value }}</p>
+      </div> -->
+      <h3>Username: {{ user?.username }}</h3>
+      <h3>Your Level: {{ user?.userLevel }}</h3>
+      <h3>Your Workouts:</h3>
+        <app-workout *ngFor="let workout of user?.workouts" [workoutArr]="workout"></app-workout>
+    </div>
+=======
     <h1>The Vault</h1>
     <!-- <button >Test123</button> -->
     <!-- <div *ngFor="let item of user | keyvalue">
@@ -13,4 +30,5 @@
     </div>
     <br />
     <button type="button" (click)="doSomething()">Add Workout</button>
+>>>>>>> aa9cfb2952614811939b615a8bdc57132fe974ab
 </div>

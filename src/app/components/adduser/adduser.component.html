@@ -1,0 +1,11 @@
+<h1>Register</h1>
+<form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+
+    <label for="username">Username</label><br>
+    <input type="text" placeholder="Username..." id="username" formControlName="username" required><br>
+    <label for="password">Password</label><br>
+    <input type="password" placeholder="Password..." id="password" formControlName="password" required><br>
+
+    <button type="submit">Login</button>
+    <button type="button" (click)="setReg()">Go Back</button>
+</form>
