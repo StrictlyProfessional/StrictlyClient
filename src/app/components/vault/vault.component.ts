@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { User, Workout } from 'src/app/classes/classes';
-import { VaultService } from 'src/app/services/vault/vault.service';
 
 @Component({
   selector: 'app-vault',
@@ -9,11 +8,9 @@ import { VaultService } from 'src/app/services/vault/vault.service';
 })
 export class VaultComponent implements OnInit {
 
-  private error = "lol didnt work";
   user: User = null;
-  isLoaded: boolean = true;
 
-  constructor(private VaultService: VaultService) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.getUser();
@@ -21,11 +18,6 @@ export class VaultComponent implements OnInit {
 
   getUser() {
     this.user = JSON.parse(document.cookie);
-    // this.VaultService.getUser().subscribe(
-    //   user => this.user = user,
-    //   err => this.error = err
-    // );
-    this.isLoaded = true;
   }
 
 }
