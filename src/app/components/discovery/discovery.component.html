@@ -6,7 +6,6 @@
             <h3>Hello {{user?.username}}</h3>
             <br>
             <h3>Here are some exercises for you to check out!</h3>
-            <br>
             <div *ngFor = "let exercises of exercises; let i = index">
                 <br>
                 <h3>{{i+1}} {{exercises.name}} {{exercises.description}}</h3>
