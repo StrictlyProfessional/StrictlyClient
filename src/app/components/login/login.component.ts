@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { User } from 'src/app/classes/classes';
-import { LoginService } from 'src/app/services/login/login.service';
+// import { LoginService } from 'src/app/services/login/login.service';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit {
 
+  
   loginForm = this.formBuilder.group({
     username: '',
     password: ''
@@ -21,8 +25,10 @@ export class LoginComponent implements OnInit {
 
 
   constructor(
-    private LoginService: LoginService,
+    // private LoginService: LoginService,
     private formBuilder: FormBuilder,
+    private httpClient: HttpClient,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -30,22 +36,39 @@ export class LoginComponent implements OnInit {
 
   onLogin(): void {
     console.log("it gets here");
-    console.log(this.loginForm.value);
+    this.httpClient.post('http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/StrictlyProToDo-0.0.1-SNAPSHOT/strictly/user-login', this.loginForm.value)
+      .subscribe(
+        response => {
+          console.log(response);
+          let jsonString = JSON.parse(JSON.stringify(response));
+          // Saving user data as the id CHANGE IF NEEDED
+          localStorage.setItem('loggedInUser', jsonString.id);
+          
+          // To retrieve the user data 
+          let halp = localStorage.getItem('loggedInUser');
+          console.log(halp);
+
+          this.router.navigate(['vault']);
+        },
+        error => { 
+          alert('Incorrect login information!')
+        });
     
-    
+    /*
     this.LoginService.getLogin().subscribe(
       loggedInUser => this.user = loggedInUser,
       err => this.error = err
-    );
+
+    );*/
   }
 
-  getLogin(event) {
-    console.log(event.target);
+  // getLogin(event) {
+  //   console.log(event.target);
     
-    this.LoginService.getLogin().subscribe(
-      loggedInUser => this.user = loggedInUser,
-      err => this.error = err
-    );
-  }
+  //   this.LoginService.getLogin().subscribe(
+  //     loggedInUser => this.user = loggedInUser,
+  //     err => this.error = err
+  //   );
+  // }
 
 }

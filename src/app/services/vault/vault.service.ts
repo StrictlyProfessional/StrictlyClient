@@ -10,12 +10,14 @@ import { User } from 'src/app/classes/classes';
 })
 export class VaultService {
 
-  private vaultURL = 'http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/StrictlyProToDo-0.0.1-SNAPSHOT/strictly/vault/1'
+  private vaultURL = `http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/StrictlyProToDo-0.0.1-SNAPSHOT/strictly/vault/${localStorage.getItem('loggedInUser')}`;
 
   constructor(private http: HttpClient) { }
 
   // get user
   getUser(): Observable<User> {
+    let test = localStorage.getItem('loggedInUser');
+    console.log('this is inside vault ' + test);
     return this.http.get<User>(this.vaultURL);
   }
 }
