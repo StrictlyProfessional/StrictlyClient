@@ -41,4 +41,8 @@ export class DiscoveryComponent implements OnInit {
     this.isLoaded = true;
   }
 
+  OnClick() {
+    
+  }
+
 }

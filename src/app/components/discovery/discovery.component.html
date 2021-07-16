@@ -8,14 +8,14 @@
             <h3>Here are some exercises for you to check out!</h3>
             <div *ngFor = "let exercises of exercises; let i = index">
                 <br>
-                <h3>{{i+1}} {{exercises.name}} {{exercises.description}}</h3>
+                <h3>{{i+1}}: {{exercises.name}}</h3>
+                <p>{{exercises.description}}</p>
             </div>
-            <div *ngFor="let workout of user?.workouts">
-                  <div *ngFor="let custExercise of workout?.customExercises; let i = index">
+            <div *ngFor="let custExercise of user?.customExercises; let i = index">
                     <br>
-                    <h3>{{i+5}} {{ custExercise?.name }} {{ custExercise?.description }}</h3>
-                  </div>
+                    <h3>{{i+5}}: {{custExercise?.name}}</h3>
+                    <p>{{custExercise?.description}}</p>
             </div>
             <br>
-            <button mat-raised-button>Click here to add new Excercises</button>
+            <button type="button">Click here to add new Excercises</button>
 </div>
