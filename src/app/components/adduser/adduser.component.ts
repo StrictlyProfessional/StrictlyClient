@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-adduser',
@@ -10,11 +11,13 @@ export class AdduserComponent implements OnInit {
 
   isShowing: boolean = false;
 
-  loginForm = this.formBuilder.group({
+  registerForm = this.formBuilder.group({
     username: '',
     password: ''
   });
 
+  @Input() showReg: boolean;
+  @Output() onReg: EventEmitter<boolean> = new EventEmitter();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,10 +26,16 @@ export class AdduserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onClick() {
-    if (this.isShowing) {
-      this.isShowing = true;
-    }
+  onRegister() {
+    console.log("hello");
+  }
+
+  setReg() {
+    this.onReg.emit(false);
+  }
+
+  onSubmit() {
+    
   }
 
 }
