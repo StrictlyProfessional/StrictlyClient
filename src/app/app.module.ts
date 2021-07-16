@@ -17,6 +17,7 @@ import { WorkoutComponent } from './components/workout/workout.component';
 import { LeaderboardCardComponent } from './components/leaderboard-card/leaderboard-card.component';
 import { LeaderboardService } from './services/leaderboard/leaderboard.service';
 import { CustomExerciseComponent } from './components/custom-exercise/custom-exercise.component';
+import { AdduserComponent } from './componenets/adduser/adduser.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CustomExerciseComponent } from './components/custom-exercise/custom-exe
     ExerciseComponent,
     WorkoutComponent,
     LeaderboardCardComponent,
-    CustomExerciseComponent
+    CustomExerciseComponent,
+    AdduserComponent
   ],
   imports: [
     BrowserModule,
