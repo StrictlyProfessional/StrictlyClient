@@ -33,8 +33,11 @@ import { AddworkoutComponent } from './components/addworkout/addworkout.componen
     WorkoutComponent,
     LeaderboardCardComponent,
     CustomExerciseComponent,
+<<<<<<< HEAD
     AdduserComponent,
     AddworkoutComponent
+=======
+>>>>>>> aa9cfb2952614811939b615a8bdc57132fe974ab
   ],
   imports: [
     BrowserModule,
