@@ -35,19 +35,32 @@ export class AdduserComponent implements OnInit {
   }
 
   onRegister() {
-    console.log("hello");
-    this.registerObject.username = this.registerForm.value.username;
-    this.registerObject.password = this.registerForm.value.password;
-    this.httpClient.post('http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/strictly/register', this.registerObject)
-      .subscribe( 
-        response => {
-          console.log(response);
-          alert('Registered new user: ' + this.registerForm.value.username);
-          this.setReg();
-        },
-        error => {
-          alert('Cannot register new user!');
-        });
+    // Empty username
+    if(this.registerForm.value.username == '') {
+      alert('Please enter a username');
+      document.getElementById('username').style.borderColor = 'red';
+    }
+    
+    // Empty password
+    if(this.registerForm.value.password == '') {
+      alert('Please enter a password');
+      document.getElementById('password').style.borderColor = 'red';
+    }
+
+    else {
+      this.registerObject.username = this.registerForm.value.username;
+      this.registerObject.password = this.registerForm.value.password;
+      this.httpClient.post('http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/strictly/register', this.registerObject)
+        .subscribe( 
+          response => {
+            console.log(response);
+            alert('Registered new user: ' + this.registerForm.value.username);
+            this.setReg();
+          },
+          error => {
+            alert('Cannot register new user!');
+          });
+    }
   }
 
   setReg() {
