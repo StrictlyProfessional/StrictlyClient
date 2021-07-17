@@ -6,15 +6,11 @@
             <h3>Hello {{user?.username}}</h3>
             <br>
             <h3>Here are some exercises for you to check out!</h3>
-            <div *ngFor = "let exercises of exercises; let i = index">
-                <br>
-                <h3>{{i+1}}: {{exercises.name}}</h3>
-                <p>{{exercises.description}}</p>
+            <div>
+                <app-exercise *ngFor = "let exercise of exercises" [exercise]="exercise"> </app-exercise>
             </div>
-            <div *ngFor="let custExercise of user?.customExercises; let i = index">
-                    <br>
-                    <h3>{{i+5}}: {{custExercise?.name}}</h3>
-                    <p>{{custExercise?.description}}</p>
+            <div>
+                <app-custom-exercise *ngFor="let custExercise of user?.customExercises" [custExercise]="custExercise"></app-custom-exercise>
             </div>
             <br>
             <button type="button">Click here to add new Excercises</button>
