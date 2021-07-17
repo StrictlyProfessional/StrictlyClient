@@ -11,6 +11,8 @@
     cursor: pointer;
     position: relative;
     transform-style: preserve-3d;
+    background-color: #083D77;
+    margin: 5px;
 }
 
 .face {
@@ -25,4 +27,23 @@
 
 .front {
     transform: rotateY(180deg);
+}
+
+.back__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.back__header {
+    padding: 20px;
+    color: #FAF9F9;
+}
+
+.back__desc {
+    text-align: center;
+    padding: 10px 30px 30px 30px;
+  
+    color: #89B0AE;
+
 }
