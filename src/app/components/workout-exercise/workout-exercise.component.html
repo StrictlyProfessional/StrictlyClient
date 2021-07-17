@@ -1,0 +1,15 @@
+<div [ngClass]="{'eCard': !isComplete, 'cCard': isComplete}" (click)="cardClicked()" [@cardFlip]="data.state">
+    <div class="face back">
+        <div class="back__container">
+            <h4 class="back__header">{{ exercise.name | uppercase }}</h4>
+            <p class="back__desc">{{ exercise.description }}</p>
+        </div>
+
+    </div>
+    <div class="face front">
+        <div class="btnHolder" (click) = "$event.stopPropagation();">
+            <button class="complete" (click)="onComplete()" >Complete</button>
+            <button class="delete" (click)="onDelete()"> Delete </button>
+        </div>
+    </div>
+</div>
