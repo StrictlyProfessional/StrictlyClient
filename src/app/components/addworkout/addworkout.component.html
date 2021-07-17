@@ -1,8 +1,8 @@
 <form [formGroup]="workoutForm" (ngSubmit)="onSubmit()">
 
     <label for="username">Workout Name</label><br>
-    <input type="text" placeholder="Username..." id="name" formControlName="name" required><br>
+    <input type="text" placeholder="Workout Name..." id="name" formControlName="name" required><br>
 
-    <button (click)="setWorkout()" type="submit" id="submitbtn">Submit</button>
+    <button type="submit" id="submitbtn">Submit</button>
     <button type="button" (click)="setWorkout()">Cancel</button>
 </form>
