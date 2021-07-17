@@ -47,6 +47,7 @@ export class WorkoutExerciseComponent implements OnInit {
   constructor() { }
 
   @Input() exercise;
+  @Input() currentWorkout;
 
   ngOnInit(): void {
   }
@@ -57,9 +58,28 @@ export class WorkoutExerciseComponent implements OnInit {
     } else {
       this.isComplete = false;
     }
+
+    let workoutIndex = this.user.workouts.findIndex(x => x.id === this.currentWorkout.id);
+    let exerciseIndex = this.user.workouts[workoutIndex].exercises.findIndex(y => y.id === this.exercise.id);
+
+    let cExercise = this.user.workouts[workoutIndex].exercises[exerciseIndex]
+
+    if (cExercise["completed"]) {
+      this.user.workouts[workoutIndex].exercises[exerciseIndex]["completed"] = false;
+    } else {
+      this.user.workouts[workoutIndex].exercises[exerciseIndex]["completed"] = true;
+    }
+
+    addCookie(this.user);
   }
 
   onDelete() {
+    let workoutIndex = this.user.workouts.findIndex(x => x.id === this.currentWorkout.id);
+    let exerciseIndex = this.user.workouts[workoutIndex].exercises.findIndex(y => y.id === this.exercise.id);
 
+    this.user.workouts[workoutIndex].exercises.splice(exerciseIndex, 1);
+    
+    addCookie(this.user);
+    window.location.reload();
   }
 }
