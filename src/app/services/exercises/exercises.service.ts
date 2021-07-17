@@ -23,4 +23,8 @@ export class ExercisesService {
   getExercies(): Observable<Exercise[]> {
     return this.http.get<Exercise[]>(this.discovery2URL);
   }
+
+  add(customExercise): Observable<any> {
+    return this.http.post(`${this.discoveryURL}/add`, customExercise);
+  }
 }

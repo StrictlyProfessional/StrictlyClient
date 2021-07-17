@@ -14,6 +14,7 @@ export class DiscoveryComponent implements OnInit {
   exercises: Exercise[];
   isLoaded: boolean = false;
   count: number = 0;
+  customExercise: boolean = false;
 
   constructor(private ExercisesService: ExercisesService) { }
 
@@ -41,8 +42,17 @@ export class DiscoveryComponent implements OnInit {
     this.isLoaded = true;
   }
 
-  OnClick() {
-    
+  onClick() {
+    console.log("Let it work")
+    if (!(this.customExercise)) {
+      this.customExercise = true;
+    } else {
+      this.customExercise = false;
+    }
+  }
+
+  changeCustomExercise(val: boolean) {
+    this.customExercise = val;
   }
 
 }
