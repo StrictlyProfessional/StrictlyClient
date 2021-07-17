@@ -19,7 +19,8 @@ export class AdduserComponent implements OnInit {
 
   registerObject = {
     username: '',
-    password: ''
+    password: '',
+    userLevel: 1
   };
 
   @Input() showReg: boolean;
@@ -37,10 +38,12 @@ export class AdduserComponent implements OnInit {
     console.log("hello");
     this.registerObject.username = this.registerForm.value.username;
     this.registerObject.password = this.registerForm.value.password;
-    this.httpClient.post('http://localhost:8080/strictly/register', this.registerObject)
+    this.httpClient.post('http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/strictly/register', this.registerObject)
       .subscribe( 
         response => {
           console.log(response);
+          alert('Registered new user: ' + this.registerForm.value.username);
+          this.setReg();
         },
         error => {
           alert('Cannot register new user!');
