@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { EventEmitter } from '@angular/core';
+import { User } from 'src/app/classes/classes'
+import { UserService } from 'src/app/services/user/user.service';
+import { ExercisesService } from 'src/app/services/exercises/exercises.service'
+import { grabUser, addCookie } from 'src/app/functions/userFunc';
 
 @Component({
   selector: 'app-addexercise',
@@ -7,9 +13,46 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddexerciseComponent implements OnInit {
 
-  constructor() { }
+//   user : User = grabUser();
+//   newUser : User = null;
+//   customExerciseForm : FormGroup;
+//   customExerciseObject = {
+//     id: 0,
+//     name: '',
+//     description: '',
+//     completed: false,
+//     user: {
+//       id: this.user.id
+//     }
+//   }
 
-  ngOnInit(): void {
-  }
+// @Output() onCustomExercise: EventEmitter<boolean> = new EventEmitter();
+
+//   constructor(private formBuilder: FormBuilder, private userService: UserService, private exercisesService: ExercisesService) { }
+
+     ngOnInit(): void {}
+//   ngOnInit(): void {
+//     this.customExerciseForm = this.formBuilder.group({
+//       name: ['']
+//     })
+//   }
+
+//   setCustomExercise() {
+//     this.onCustomExercise.emit(false);
+//   }
+
+//   onSubmit(): void {
+//     this.customExerciseObject,name = this.customExerciseForm.value.name;
+//     this.exercisesService.add(this.customExerciseObject).subscribe(customExercise => this.customExerciseObject = customExercise);
+//     this.user.customExercises.push(this.customExerciseObject);
+//     addCookie(this.user);
+//     this.setCustomExercise();
+//     window.location.reload();
+//     alert("Workout added");
+//   }
+
+//   private newMethod() {
+//     return this;
+//   }
 
 }
