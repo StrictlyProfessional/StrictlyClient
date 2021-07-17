@@ -3,6 +3,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 import { eCard } from 'src/app/classes/cardinterfaces';
 import { User } from 'src/app/classes/classes';
 import { grabUser, clearCookies, addCookie } from 'src/app/functions/userFunc';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-exercise',
@@ -43,7 +44,9 @@ export class ExerciseComponent implements OnInit {
     }
   }
 
-  constructor() { }
+  constructor(
+    private httpClient : HttpClient
+  ) { }
 
   @Input() exercise;
 
@@ -80,5 +83,19 @@ export class ExerciseComponent implements OnInit {
     console.log("makes it here");
     addCookie(this.user);
     alert("Success! Exercise Added!")
+  }
+  calculateLevel(){
+    let experience = this.user.experience;
+    let newLevel = Math.floor((experience * 69)/420);
+    this.user.experience = newLevel;
+    this.httpClient.post('http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/strictly/users/update',this.user)
+    .subscribe(
+      response =>{
+        console.log(response);
+      },
+      error =>{
+        alert("lol didnt work");
+      }
+    )
   }
 }
