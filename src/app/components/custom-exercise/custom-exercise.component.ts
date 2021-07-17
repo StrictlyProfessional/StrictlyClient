@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { eCard } from 'src/app/classes/cardinterfaces';
+import { grabUser, addCookie } from 'src/app/functions/userFunc';
+import { User } from 'src/app/classes/classes';
 
 @Component({
   selector: 'app-custom-exercise',
@@ -28,6 +30,10 @@ export class CustomExerciseComponent implements OnInit {
     state: "default"
   };
 
+  selectedOption: string;
+  user: User = grabUser();
+  options = [];
+
   cardClicked() {
     if (this.data.state === "default") {
       this.data.state = "flipped";
@@ -40,6 +46,34 @@ export class CustomExerciseComponent implements OnInit {
   @Input() custExercise;
 
   ngOnInit(): void {
+    this.setOptions();
   }
 
+  setOptions() {
+    let ceArr = this.user.workouts;
+
+    ceArr.map(ce => {
+      let wObj = {
+        name: "",
+        value: 0
+      };
+      
+      wObj["name"] = ce.name;
+      wObj["value"] = ce.id;
+      this.options.push(wObj)
+    })
+  }
+
+  addExercise() {
+    let wo = this.selectedOption.split(": ");
+    let wArr = this.user.workouts;
+    let index = wArr.findIndex(w => w.id === parseInt(wo[0]))
+    this.user.workouts[index].customExercises.push(this.custExercise)
+    addCookie(this.user);
+    alert("Success! Exercise Added!")
+  }
+
+  editExercise() {
+    // impletement soon
+  }
 }

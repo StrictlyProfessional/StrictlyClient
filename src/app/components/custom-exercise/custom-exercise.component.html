@@ -1,9 +1,23 @@
 <div class="eCard" (click)="cardClicked()" [@cardFlip]="data.state">
     <div class="face back">
-        <p>{{ custExercise.name }}</p>
-        <p>{{ custExercise.description }}</p>
+        <div class="back__container">
+            <h4 class="back__header">{{ custExercise.name | uppercase }}</h4>
+            <p class="back__desc">{{ custExercise.description }}</p>
+        </div>
+
     </div>
     <div class="face front">
-        <p>Back of card</p>
+        <div class="" (click) = "$event.stopPropagation();">
+            <div class="selectContainer">
+                <h3 class="selHeader">Which workout?</h3>
+                <select [(ngModel)]="selectedOption" class="select">
+                    <option *ngFor="let o of options" class="option">
+                        {{ o.value }}: {{ o.name }}
+                    </option>
+                </select>
+                <button class="addBtn" type="button" (click)="addExercise()">+</button>
+            </div>
+            <button class="editBtn" type="button" (click)="editExercise()">Edit</button>
+        </div>
     </div>
 </div>
