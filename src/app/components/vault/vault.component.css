@@ -5,3 +5,8 @@
     align-items: center;
     margin-left: auto;
 }
+
+.vaultCard {
+  display: flex;
+  justify-content: center;
+}
