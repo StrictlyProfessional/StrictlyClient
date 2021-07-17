@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { eCard } from 'src/app/classes/cardinterfaces';
-import { HttpClient } from '@angular/common/http';
+import { grabUser, addCookie } from 'src/app/functions/userFunc';
 import { User } from 'src/app/classes/classes';
-import { grabUser } from 'src/app/functions/userFunc';
 
 @Component({
   selector: 'app-custom-exercise',
@@ -30,7 +29,11 @@ export class CustomExerciseComponent implements OnInit {
   data: eCard = {
     state: "default"
   };
-  user : User = null;
+
+  selectedOption: string;
+  user: User = grabUser();
+  options = [];
+
   cardClicked() {
     if (this.data.state === "default") {
       this.data.state = "flipped";
@@ -45,22 +48,34 @@ export class CustomExerciseComponent implements OnInit {
   @Input() custExercise;
 
   ngOnInit(): void {
-    //this might need to be different for custom exercise.
-    //this is copying functionality from exercise
-    this.user = grabUser();
+    this.setOptions();
   }
-  calculateLevel(){
-    let experience = this.user.experience;
-    let newLevel = Math.floor((experience * 69)/420);
-    this.user.experience = newLevel;
-    this.httpClient.post('http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/strictly/users/update',this.user)
-    .subscribe(
-      response =>{
-        console.log(response);
-      },
-      error =>{
-        alert("lol didnt work");
-      }
-    )
+
+  setOptions() {
+    let ceArr = this.user.workouts;
+
+    ceArr.map(ce => {
+      let wObj = {
+        name: "",
+        value: 0
+      };
+      
+      wObj["name"] = ce.name;
+      wObj["value"] = ce.id;
+      this.options.push(wObj)
+    })
+  }
+
+  addExercise() {
+    let wo = this.selectedOption.split(": ");
+    let wArr = this.user.workouts;
+    let index = wArr.findIndex(w => w.id === parseInt(wo[0]))
+    this.user.workouts[index].customExercises.push(this.custExercise)
+    addCookie(this.user);
+    alert("Success! Exercise Added!")
+  }
+
+  editExercise() {
+    // impletement soon
   }
 }
