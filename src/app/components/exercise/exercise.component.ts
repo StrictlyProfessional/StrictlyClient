@@ -79,5 +79,6 @@ export class ExerciseComponent implements OnInit {
     console.log(this.user.workouts[index].exercises);
     console.log("makes it here");
     addCookie(this.user);
+    alert("Success! Exercise Added!")
   }
 }

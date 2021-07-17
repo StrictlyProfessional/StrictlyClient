@@ -32,7 +32,7 @@ button {
 }
 
 button:hover {
-  border-color: rgb(43, 4, 182);
+  border-color: white;
 }
 
 @media all and (max-width:30em){
