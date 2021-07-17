@@ -2,10 +2,10 @@
 <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
 
     <label for="username">Username</label><br>
-    <input type="text" placeholder="Username..." id="username" formControlName="username" required><br>
+    <input type="text" placeholder="Enter new Username..." id="username" formControlName="username" required><br>
     <label for="password">Password</label><br>
-    <input type="password" placeholder="Password..." id="password" formControlName="password" required><br>
+    <input type="password" placeholder="Enter new Password..." id="password" formControlName="password" required><br>
 
-    <button type="submit">Login</button>
+    <button type="submit">Register</button>
     <button type="button" (click)="setReg()">Go Back</button>
 </form>
