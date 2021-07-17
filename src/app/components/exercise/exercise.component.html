@@ -8,13 +8,17 @@
 
     </div>
     <div class="face front">
-        <div (click) = "$event.stopPropagation();">
-            <select [(ngModel)]="selectedOption">
-                <option *ngFor="let o of options">
-                    {{ o.value }}: {{ o.name }}
-                </option>
-            </select>
-            <button class="addBtn" type="button" (click)="addExercise()">+</button>
+        <div class="" (click) = "$event.stopPropagation();">
+            <div class="selectContainer">
+                <h3 class="selHeader">Which workout?</h3>
+                <select [(ngModel)]="selectedOption" class="select">
+                    <option *ngFor="let o of options" class="option">
+                        {{ o.value }}: {{ o.name }}
+                    </option>
+                </select>
+                <button class="addBtn" type="button" (click)="addExercise()">+</button>
+            </div>
+
         </div>
     </div>
 </div>

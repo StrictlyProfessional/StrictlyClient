@@ -5,9 +5,9 @@ import { User } from 'src/app/classes/classes';
 import { grabUser, clearCookies, addCookie } from 'src/app/functions/userFunc';
 
 @Component({
-  selector: 'app-exercise',
-  templateUrl: './exercise.component.html',
-  styleUrls: ['./exercise.component.css'],
+  selector: 'app-workout-exercise',
+  templateUrl: './workout-exercise.component.html',
+  styleUrls: ['./workout-exercise.component.css'],
   animations: [
     trigger('cardFlip', [
       state('default', style({
@@ -26,14 +26,15 @@ import { grabUser, clearCookies, addCookie } from 'src/app/functions/userFunc';
   ]
 })
   
-export class ExerciseComponent implements OnInit {
+export class WorkoutExerciseComponent implements OnInit {
+
   data: eCard = {
     state: "default"
   };
-
   selectedOption: string;
-  user: User = null;
+  user: User = grabUser();
   options = [];
+  isComplete: boolean = false;
 
   cardClicked() {
     if (this.data.state === "default") {
@@ -48,37 +49,17 @@ export class ExerciseComponent implements OnInit {
   @Input() exercise;
 
   ngOnInit(): void {
-    this.user = grabUser();
-    this.setOptions();
-  }
-  
-  setOptions() {
-    let wArr = this.user.workouts;
-
-    wArr.map(w => {
-      let wObj = {
-        name: "",
-        value: 0
-      };
-
-      console.log(w);
-      
-      wObj["name"] = w.name;
-      wObj["value"] = w.id;
-      this.options.push(wObj)
-    })
   }
 
-  addExercise() {
-    let wo = this.selectedOption.split(": ");
-    let wArr = this.user.workouts;
-    let index = wArr.findIndex(w => w.id === parseInt(wo[0]))
-    console.log(this.exercise);
-    console.log(this.user.workouts[index].exercises);
-    this.user.workouts[index].exercises.push(this.exercise)
-    console.log(this.user.workouts[index].exercises);
-    console.log("makes it here");
-    addCookie(this.user);
-    alert("Success! Exercise Added!")
+  onComplete() {
+    if (this.isComplete === false) {
+      this.isComplete = true;
+    } else {
+      this.isComplete = false;
+    }
+  }
+
+  onDelete() {
+
   }
 }
