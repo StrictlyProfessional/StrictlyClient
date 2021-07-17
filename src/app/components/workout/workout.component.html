@@ -1,6 +1,10 @@
-<div class="workout">
+<div class="workoutCard">
   <br />
   <h3>{{ workoutArr?.name }}</h3>
-  <app-exercise *ngFor="let exercise of workoutArr.exercises" [exercise]="exercise"></app-exercise>
-  <app-custom-exercise *ngFor="let custExercise of workoutArr.customExercises" [custExercise]="custExercise"></app-custom-exercise>
+  <div class="exercises">
+    <app-exercise *ngFor="let exercise of workoutArr.exercises" [exercise]="exercise"></app-exercise>
+    <app-custom-exercise *ngFor="let custExercise of workoutArr.customExercises" [custExercise]="custExercise"></app-custom-exercise>
+  </div>
+  <!-- this does nothing yet need to add functionality -->
+  <button>Edit Workout</button>
 </div>
