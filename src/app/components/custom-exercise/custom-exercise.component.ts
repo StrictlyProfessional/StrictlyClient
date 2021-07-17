@@ -41,7 +41,9 @@ export class CustomExerciseComponent implements OnInit {
       this.data.state = "default";
     }
   }
-  constructor() { }
+  constructor(
+    private httpClient : HttpClient
+  ) { }
 
   @Input() custExercise;
 
