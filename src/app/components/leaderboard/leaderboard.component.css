@@ -1,0 +1,6 @@
+.headers{
+    display:flex;
+    flex-direction: row;
+    align-items:flext-start;
+    justify-content: space-between;
+}

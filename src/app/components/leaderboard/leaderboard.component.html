@@ -1,11 +1,19 @@
 
-<div >
+<div>
     <app-nav></app-nav>
     <h1>Leaderboard</h1>
-    
-    <th>Username</th>
-    <th>User Experience</th>
-    <app-leaderboard-card *ngFor="let user of users"[usersArr]="user"></app-leaderboard-card>  
+    <table id ="headers">
+        <tr>
+        <th> Username</th>
+        <th>User Experience</th>
+        <th>User Levels</th>
+    </tr>
+    <tr>
+            
+</tr>
+    </table>
+    <app-leaderboard-card *ngFor="let user of users"[usersArr]="user"></app-leaderboard-card> 
+     
         
     
 </div>

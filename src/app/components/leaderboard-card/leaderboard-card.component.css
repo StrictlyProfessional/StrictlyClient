@@ -1,8 +1,10 @@
-div{
+table{
     display:flex;
+    flex-direction: row;
     align-items:flext-start;
     flex-wrap:nowrap;
     height:25px;
     background-color: #FFD6BA;
     color: #083D77;
+    justify-content: space-between;
 }
