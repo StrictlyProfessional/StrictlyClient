@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component,Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
 import { User } from 'src/app/classes/classes'
@@ -13,46 +13,50 @@ import { grabUser, addCookie } from 'src/app/functions/userFunc';
 })
 export class AddexerciseComponent implements OnInit {
 
-//   user : User = grabUser();
-//   newUser : User = null;
-//   customExerciseForm : FormGroup;
-//   customExerciseObject = {
-//     id: 0,
-//     name: '',
-//     description: '',
-//     completed: false,
-//     user: {
-//       id: this.user.id
-//     }
-//   }
+  user : User = grabUser();
+  newUser : User = null;
+  // customExerciseForm : FormGroup;
+  customExerciseForm = this.formBuilder.group({
+    name: '',
+    description: ''
+  });
+  customExerciseObject = {
+    id: 0,
+    name: '',
+    description: '',
+    completed: false,
+    user: {
+      id: this.user.id
+    }
+  }
 
-// @Output() onCustomExercise: EventEmitter<boolean> = new EventEmitter();
+@Input() showCustomExercise: boolean;
+@Output() onCustomExercise: EventEmitter<boolean> = new EventEmitter();
 
-//   constructor(private formBuilder: FormBuilder, private userService: UserService, private exercisesService: ExercisesService) { }
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private exercisesService: ExercisesService) { }
 
-     ngOnInit(): void {}
-//   ngOnInit(): void {
-//     this.customExerciseForm = this.formBuilder.group({
-//       name: ['']
-//     })
-//   }
+  ngOnInit(): void {
 
-//   setCustomExercise() {
-//     this.onCustomExercise.emit(false);
-//   }
+  }
 
-//   onSubmit(): void {
-//     this.customExerciseObject,name = this.customExerciseForm.value.name;
-//     this.exercisesService.add(this.customExerciseObject).subscribe(customExercise => this.customExerciseObject = customExercise);
-//     this.user.customExercises.push(this.customExerciseObject);
-//     addCookie(this.user);
-//     this.setCustomExercise();
-//     window.location.reload();
-//     alert("Workout added");
-//   }
+  setCustomExercise() {
+    console.log("This gets touched")
+    this.onCustomExercise.emit(false);
+  }
 
-//   private newMethod() {
-//     return this;
-//   }
+  onAdd(): void {
+    this.customExerciseObject.name = this.customExerciseForm.value.name;
+    this.customExerciseObject.description = this.customExerciseForm.value.description;
+    this.exercisesService.add(this.customExerciseObject).subscribe(customExercise => this.customExerciseObject = customExercise);
+    this.user.customExercises.push(this.customExerciseObject);
+    addCookie(this.user);
+    this.setCustomExercise();
+    window.location.reload();
+    alert("Custom Exercise added");
+  }
+
+  private newMethod() {
+    return this;
+  }
 
 }
