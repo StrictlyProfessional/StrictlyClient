@@ -20,6 +20,7 @@ import { CustomExerciseComponent } from './components/custom-exercise/custom-exe
 import { AdduserComponent } from './components/adduser/adduser.component';
 import { AddworkoutComponent } from './components/addworkout/addworkout.component';
 import { WorkoutExerciseComponent } from './components/workout-exercise/workout-exercise.component';
+import { EditworkoutComponent } from './components/editworkout/editworkout.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { WorkoutExerciseComponent } from './components/workout-exercise/workout-
     CustomExerciseComponent,
     AdduserComponent,
     AddworkoutComponent,
-    WorkoutExerciseComponent
+    WorkoutExerciseComponent,
+    EditworkoutComponent
   ],
   imports: [
     BrowserModule,
