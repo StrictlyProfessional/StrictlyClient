@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const url = 'http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/workouts';
- // const url = 'http://localhost:8080/strictly/workouts';
+// const url = 'http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/workouts';
+const url = 'http://localhost:8080/strictly/workouts';
 @Injectable({
   providedIn: 'root'
 })
@@ -20,9 +20,10 @@ export class WorkoutService {
     return this.http.post(`${url}/add`, workout);
   }
 
-  delete(id): Observable<any> {
+  delete(id: number): Observable<any> {
     return this.http.post(`${url}/delete/${id}`, id)
     .pipe(map((res:any)=> {
+      console.log(res);
       return res;
     }));
   }

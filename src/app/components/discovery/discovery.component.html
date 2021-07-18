@@ -1,22 +1,20 @@
-<div>
+<div class="Page">
     <app-nav></app-nav>
     <h1><b>Discovery</b></h1>
-        <div *ngIf="isLoaded">
-            <br>
-            <h3>Hello {{user?.username}}</h3>
-            <br>
-            <h3>Here are some exercises for you to check out!</h3>
-            <div>
-                <app-exercise *ngFor = "let exercise of exercises" [exercise]="exercise"> </app-exercise>
-            </div>
-            <div>
-                <app-custom-exercise *ngFor="let custExercise of user?.customExercises" [custExercise]="custExercise"></app-custom-exercise>
-            </div>
-            <br>
-            <!-- <button type="button">Click here to add new Excercises</button> -->
-            <div class="addCustomExercise">
-                <button type="button" (click)="onClick()">Click Here to add new Exercises</button>
-                <app-addexercise *ngIf="customExercise" (onCustomExercise)="changeCustomExercise($event)"></app-addexercise>
-            </div>
-            
+    <div class="Opening" *ngIf="isLoaded">
+        <br><br>
+        <h3>Hello {{user?.username}}</h3>
+        <br>
+        <h3>Here are some exercises for you to check out!</h3>
+        <div class="exerciseCard">
+            <app-exercise *ngFor="let exercise of exercises" [exercise]="exercise"> </app-exercise>
+            <app-custom-exercise *ngFor="let custExercise of user?.customExercises" [custExercise]="custExercise">
+            </app-custom-exercise>
+        </div>
+        <br>
+        <div class="addCustomExercise">
+            <button type="button" (click)="onClick()">Click Here to add new Exercises</button>
+            <app-addexercise *ngIf="customExercise" (onCustomExercise)="changeCustomExercise($event)"></app-addexercise>
+        </div>
+    </div>
 </div>

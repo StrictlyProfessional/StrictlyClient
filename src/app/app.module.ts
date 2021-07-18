@@ -46,7 +46,7 @@ import { EditworkoutComponent } from './components/editworkout/editworkout.compo
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [LeaderboardService],
   bootstrap: [AppComponent]
