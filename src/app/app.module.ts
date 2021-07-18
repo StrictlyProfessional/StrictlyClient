@@ -36,7 +36,7 @@ import { WorkoutExerciseComponent } from './components/workout-exercise/workout-
     CustomExerciseComponent,
     AdduserComponent,
     AddworkoutComponent,
-    WorkoutExerciseComponent
+    WorkoutExerciseComponent,
   ],
   imports: [
     BrowserModule,
