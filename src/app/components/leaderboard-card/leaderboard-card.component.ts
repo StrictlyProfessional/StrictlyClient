@@ -11,21 +11,11 @@ import { LeaderboardService } from 'src/app/services/leaderboard/leaderboard.ser
 
 export class LeaderboardCardComponent implements OnInit {
 
-  private error = "lol didnt work";
-  users : User[] = [];
   isLoaded : boolean = true;
-  @Input() usersArr;
+  @Input() user;
   constructor(private LeaderboardService : LeaderboardService) { }
 
   ngOnInit(): void {
     
   }
-
-getUsers(){
-  this.LeaderboardService.getUsers().subscribe(
-    allUsers => this.users = allUsers,
-    err => this.error = err
-  );
-  this.isLoaded = true;
-}
 }

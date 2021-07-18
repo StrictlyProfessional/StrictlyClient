@@ -46,7 +46,7 @@ import { EditCustomExerciseComponent } from './components/edit-custom-exercise/e
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [LeaderboardService],
   bootstrap: [AppComponent]
