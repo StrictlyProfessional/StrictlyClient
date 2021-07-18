@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
 
     // potentially valid user
     else {
-      this.httpClient.post('http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/strictly/user-login', this.loginForm.value)
+      this.httpClient.post('http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/user-login', this.loginForm.value)
       .subscribe(
         response => {
           console.log(response);
