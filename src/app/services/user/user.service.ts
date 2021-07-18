@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/classes/classes';
 
-const userURL = 'http://ec2-3-87-255-246.compute-1.amazonaws.com:8080/strictly/users';
+const userURL = 'http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/users';
 
 @Injectable({
   providedIn: 'root'
