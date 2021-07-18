@@ -44,7 +44,7 @@ import { WorkoutExerciseComponent } from './components/workout-exercise/workout-
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [LeaderboardService],
   bootstrap: [AppComponent]
