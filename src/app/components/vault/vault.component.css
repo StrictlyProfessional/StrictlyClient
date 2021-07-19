@@ -10,3 +10,12 @@
   display: flex;
   justify-content: center;
 }
+.vaultInfo {
+  text-align: center;
+  padding: 50px;;
+  font-size: 5em;
+}
+
+.userInfo {
+  color: #083D77;
+}
