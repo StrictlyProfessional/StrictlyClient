@@ -2,6 +2,11 @@
 <div class="titleC">
     <h1 class="ltitle">Leaderboard</h1>
 </div>
+<div class ="titleC">
+    <button (click)=byUsername() >Sort by Username</button>
+    <button (click)=getUsers()>Sort Normally</button>
+</div>
+
 <div class="tableC">
     <table class="ltable">
         <thead>
@@ -19,5 +24,6 @@
                 <td class="xpc">{{user.experience}}</td>
             </tr>
         </tbody>
+
     </table>
 </div>
