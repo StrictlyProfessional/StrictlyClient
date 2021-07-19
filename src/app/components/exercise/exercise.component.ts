@@ -40,17 +40,6 @@ export class ExerciseComponent implements OnInit {
   user: User = grabUser();
   options = [];
 
-  workoutObject = {
-    id: 0,
-    name: '',
-    user: {
-      id: this.user.id
-  },
-    exercises: [],
-    customExercises: [],
-    combinedExercises: null
-};
-
   cardClicked() {
     if (this.data.state === "default") {
       this.data.state = "flipped";
