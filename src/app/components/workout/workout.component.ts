@@ -24,7 +24,7 @@ export class WorkoutComponent implements OnInit {
 
   deleteWorkout(workout) {
     console.log("Delete method called")
-    this.workoutService.delete(workout.id);
+    this.workoutService.delete(workout).subscribe();
     let workoutIndex = this.user.workouts.findIndex(x => x.id === this.workoutArr.id);
     this.user.workouts.splice(workoutIndex, 1);
 

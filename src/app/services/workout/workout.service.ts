@@ -20,11 +20,7 @@ export class WorkoutService {
     return this.http.post(`${url}/add`, workout);
   }
 
-  delete(id: number): Observable<any> {
-    return this.http.post(`${url}/delete/${id}`, id)
-    .pipe(map((res:any)=> {
-      console.log(res);
-      return res;
-    }));
+  delete(workout): Observable<any> {
+    return this.http.post(`${url}/delete`, workout);
   }
 }

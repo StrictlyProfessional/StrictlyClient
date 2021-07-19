@@ -29,7 +29,7 @@ export class Workout {
     customExercises: CustomExercise[];
 }
 
-export interface User {
+export interface UserInterface {
     id: number;
     username: string;
     password: string;
