@@ -2,8 +2,9 @@ import { Component, OnInit, Input, Output } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from 'src/app/classes/classes';
+import { Exercise, User } from 'src/app/classes/classes';
 import { addCookie, grabUser } from 'src/app/functions/userFunc';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-edit-custom-exercise',
@@ -30,11 +31,13 @@ export class EditCustomExerciseComponent implements OnInit {
   };
 
   @Input() showEdit: boolean;
+  @Input() custExercise;
   @Output() onE: EventEmitter<boolean> = new EventEmitter();
 
   constructor(
     private formBuilder: FormBuilder,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private userService: UserService
   ) { }
 
   ngOnInit(): void {
@@ -45,18 +48,13 @@ export class EditCustomExerciseComponent implements OnInit {
     console.log(this.custExerciseForm.value.desc);
     this.custExerciseObject.name = this.custExerciseForm.value.name;
     this.custExerciseObject.description = this.custExerciseForm.value.desc;
+    this.custExerciseObject.id = this.custExercise.id;
     //this.httpClient.post('http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/customExercises/update', this.custExerciseObject)
     this.httpClient.post('http://localhost:8080/strictly/customExercises/update', this.custExerciseObject)
-      .subscribe(
-        response => {
-          console.log('sent post');
-          console.log(JSON.parse(document.cookie));
-          console.log(response);
-          alert('Edited Custom Exercise');
-          this.setEdit();
-        },
-        error => {
-          alert('Cannot edit custom exercise!');
+      .toPromise().then(
+        data => {
+          window.location.reload();
+          alert('Edited custom exercise!');
         });
   }
 
