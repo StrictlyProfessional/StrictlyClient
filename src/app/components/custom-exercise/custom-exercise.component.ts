@@ -4,6 +4,7 @@ import { eCard } from 'src/app/classes/cardinterfaces';
 import { grabUser, addCookie } from 'src/app/functions/userFunc';
 import { User } from 'src/app/classes/classes';
 import { HttpClient } from '@angular/common/http';
+import { WorkoutService } from 'src/app/services/workout/workout.service';
 
 @Component({
   selector: 'app-custom-exercise',
@@ -45,7 +46,8 @@ export class CustomExerciseComponent implements OnInit {
     }
   }
   constructor(
-    private httpClient : HttpClient
+    private httpClient : HttpClient,
+    private ws: WorkoutService
   ) { }
 
   @Input() custExercise;
@@ -62,7 +64,7 @@ export class CustomExerciseComponent implements OnInit {
         name: "",
         value: 0
       };
-      
+
       wObj["name"] = ce.name;
       wObj["value"] = ce.id;
       this.options.push(wObj)
@@ -73,9 +75,27 @@ export class CustomExerciseComponent implements OnInit {
     let wo = this.selectedOption.split(": ");
     let wArr = this.user.workouts;
     let index = wArr.findIndex(w => w.id === parseInt(wo[0]))
-    this.user.workouts[index].customExercises.push(this.custExercise)
-    addCookie(this.user);
-    alert("Success! Exercise Added!")
+    this.user.workouts[index].customExercises.push(this.custExercise);
+    let aWorkout = this.user.workouts[index];
+
+    let workoutObject = {
+      id: aWorkout.id,
+      name: aWorkout.name,
+      user: {
+        id: this.user.id
+    },
+      exercises: aWorkout.exercises,
+      customExercises: aWorkout.customExercises,
+      combinedExercises: null
+    };
+    console.log(this.user.customExercises);
+    this.ws.update(workoutObject).toPromise().then(data => {
+      console.log(this.user.customExercises);
+
+      addCookie(this.user);
+      alert("Success! Custom Exercise Added!");
+      //window.location.reload();
+    });
   }
 
   editExercise() {
