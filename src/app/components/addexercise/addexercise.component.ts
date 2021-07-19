@@ -33,7 +33,10 @@ export class AddexerciseComponent implements OnInit {
 @Input() showCustomExercise: boolean;
 @Output() onCustomExercise: EventEmitter<boolean> = new EventEmitter();
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private exercisesService: ExercisesService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private exercisesService: ExercisesService) { }
 
   ngOnInit(): void {
 
@@ -55,8 +58,5 @@ export class AddexerciseComponent implements OnInit {
     alert("Custom Exercise added");
   }
 
-  private newMethod() {
-    return this;
-  }
-
+  
 }
