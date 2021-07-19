@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { User } from 'src/app/classes/classes';
-import { addCookie, grabUser } from 'src/app/functions/userFunc';
+import { addCookie, grabUser, clearCookies } from 'src/app/functions/userFunc';
 import { UserService } from 'src/app/services/user/user.service';
 import { WorkoutService } from 'src/app/services/workout/workout.service';
 
@@ -14,7 +14,7 @@ export class EditworkoutComponent implements OnInit {
 
   user : User = grabUser();
   workoutForm : FormGroup;
-  // newUser = null;
+  newUser = null;
 
   workoutObject = {
       id: 0,
@@ -52,8 +52,9 @@ export class EditworkoutComponent implements OnInit {
     this.workoutObject.user.id = this.user.id;
     this.workoutObject.exercises = this.workout.exercises;
     this.workoutObject.customExercises = this.workout.customExercises;
-    this.workoutService.update(this.workout).toPromise().then(data => {
+    this.workoutService.update(this.workoutObject).toPromise().then(data => {
       this.setWorkout();
+    
       window.location.reload();
       alert("Workout edited");
     });
