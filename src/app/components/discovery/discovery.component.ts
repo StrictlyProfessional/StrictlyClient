@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Exercise, User } from 'src/app/classes/classes';
 import { ExercisesService } from 'src/app/services/exercises/exercises.service';
 import { UserService } from 'src/app/services/user/user.service';
-import { addCookie, grabUser } from 'src/app/functions/userFunc';
+import { addCookie, grabUser, getCustomExercises } from 'src/app/functions/userFunc';
 
 @Component({
   selector: 'app-discovery',
@@ -27,8 +27,10 @@ export class DiscoveryComponent implements OnInit {
   ngOnInit(): void {
     this.id = grabUser().id;
     this.user = this.UserService.getById(this.id).subscribe(
-      (data: User) => this.user= data
-    );
+      (data: User) => {
+        this.user= data;
+        //this.user.customExercises = getCustomExercises(this.user.workouts);
+    });
     this.getExercises();
   }
 

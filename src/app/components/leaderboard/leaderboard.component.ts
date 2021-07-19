@@ -12,6 +12,7 @@ export class LeaderboardComponent implements OnInit {
   private error = "lol didnt work";
   users: User[] = [];
   isLoaded: boolean = false;
+  user : User = null;
 
   constructor(private LeaderboardService: LeaderboardService) { }
 
@@ -25,5 +26,13 @@ export class LeaderboardComponent implements OnInit {
       err => this.error = err
     );
     this.isLoaded = true;
+  }
+  byUsername(){
+   this.LeaderboardService.getUsers().subscribe(
+    allUsers => this.users = allUsers.sort(
+      function(a,b){
+        return a.username.localeCompare(b.username);
+      })
+   )
   }
 }
