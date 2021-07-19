@@ -20,20 +20,7 @@ export function addCookie(user) {
 }
 
 export function calculateLevel(cuser){
-    let experience = cuser.experience;
-    let newLevel = Math.floor((experience * 69)/420);
-    cuser.experience = newLevel;
 
-    this.httpClient.post('http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/users/update',cuser)
-    .subscribe(
-      response =>{
-        console.log(response);
-      },
-      error =>{
-        alert("lol didnt work");
-      }
-
-    )
   }
 
 export function getCustomExercises(arr) {
