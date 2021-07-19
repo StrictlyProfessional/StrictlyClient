@@ -5,6 +5,9 @@ import { User } from 'src/app/classes/classes';
 import { grabUser, clearCookies, addCookie } from 'src/app/functions/userFunc';
 import { HttpClient } from '@angular/common/http';
 import { WorkoutService } from 'src/app/services/workout/workout.service';
+import { strictlyUpdate } from 'src/app/functions/fetch';
+
+const updateURL = "http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/workouts/update"
 
 @Component({
   selector: 'app-exercise',
@@ -34,7 +37,7 @@ export class ExerciseComponent implements OnInit {
   };
 
   selectedOption: string;
-  user: User = null;
+  user: User = grabUser();
   options = [];
 
   cardClicked() {
@@ -65,8 +68,6 @@ export class ExerciseComponent implements OnInit {
         name: "",
         value: 0
       };
-
-      console.log(w);
       
       wObj["name"] = w.name;
       wObj["value"] = w.id;
@@ -78,17 +79,32 @@ export class ExerciseComponent implements OnInit {
     let wo = this.selectedOption.split(": ");
     let wArr = this.user.workouts;
     let index = wArr.findIndex(w => w.id === parseInt(wo[0]))
-    console.log(this.exercise);
-    console.log(this.user.workouts[index].exercises);
     this.user.workouts[index].exercises.push(this.exercise)
-    console.log(this.user.workouts[index].exercises);
-    console.log("makes it here");
-    this.ws.update(this.user.workouts[index]).subscribe(response => {
-      console.log(response);
+    let aWorkout = this.user.workouts[index];
+
+    let workoutObject = {
+      id: aWorkout.id,
+      name: aWorkout.name,
+      user: {
+        id: this.user.id
+    },
+      exercises: aWorkout.exercises,
+      customExercises: aWorkout.customExercises,
+      combinedExercises: null
+  };
+
+    console.log("------------------------");
+    console.log(workoutObject);
+
+    this.ws.update(workoutObject).toPromise().then(data => {
+      console.log(data);
       
+      addCookie(this.user);
+      alert("Success! Exercise Added!");
+      window.location.reload();
     });
-    addCookie(this.user);
-    alert("Success! Exercise Added!");
+    
+    
   }
 
 }
