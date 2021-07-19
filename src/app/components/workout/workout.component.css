@@ -1,4 +1,4 @@
 .exercises {
   display: flex;
-  flex-direction: row
+  flex-direction: row;
 }
