@@ -49,8 +49,7 @@ export class EditCustomExerciseComponent implements OnInit {
     this.custExerciseObject.name = this.custExerciseForm.value.name;
     this.custExerciseObject.description = this.custExerciseForm.value.desc;
     this.custExerciseObject.id = this.custExercise.id;
-    //this.httpClient.post('http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/customExercises/update', this.custExerciseObject)
-    this.httpClient.post('http://localhost:8080/strictly/customExercises/update', this.custExerciseObject)
+    this.httpClient.post('http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/customExercises/update', this.custExerciseObject)
       .toPromise().then(
         data => {
           window.location.reload();

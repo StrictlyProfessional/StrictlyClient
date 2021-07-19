@@ -1,11 +1,13 @@
-<h1>Register</h1>
-<form [formGroup]="registerForm" (ngSubmit)="onRegister()">
-
-    <label for="username">Username</label><br>
-    <input type="text" placeholder="Enter new Username..." id="username" formControlName="username" required><br>
-    <label for="password">Password</label><br>
-    <input type="password" placeholder="Enter new Password..." id="password" formControlName="password" required><br>
-
-    <button type="submit">Register</button>
-    <button type="button" (click)="setReg()">Go Back</button>
-</form>
+<div class="regContainer">
+    <h1>Register</h1>
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    
+        <label for="username">Username</label>
+        <input type="text" placeholder="Enter new Username..." id="username" formControlName="username" required><br>
+        <label for="password">Password</label>
+        <input type="password" placeholder="Enter new Password..." id="password" formControlName="password" required><br>
+    
+        <button type="submit">Register</button>
+        <button type="button" (click)="setReg()">Go Back</button>
+    </form>
+</div>
