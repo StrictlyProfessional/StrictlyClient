@@ -1,7 +1,7 @@
 .addCustomExercise {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
 }
 
 .exerciseCard {
@@ -10,7 +10,6 @@
   flex-direction: row;
   flex-wrap:wrap;
   width: 50%;
-
 }
 
 .Opening{
