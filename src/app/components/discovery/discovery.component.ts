@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Exercise, User } from 'src/app/classes/classes';
 import { ExercisesService } from 'src/app/services/exercises/exercises.service';
+import { UserService } from 'src/app/services/user/user.service';
+import { addCookie, grabUser } from 'src/app/functions/userFunc';
 
 @Component({
   selector: 'app-discovery',
@@ -10,29 +12,26 @@ import { ExercisesService } from 'src/app/services/exercises/exercises.service';
 export class DiscoveryComponent implements OnInit {
 
   private error = "Error for Discovery Page";
-  user: User;
+  user = null;
+  id: number;
   exercises: Exercise[];
   isLoaded: boolean = false;
   count: number = 0;
   customExercise: boolean = false;
 
-  constructor(private ExercisesService: ExercisesService) { }
+  constructor(
+    private ExercisesService: ExercisesService,
+    private UserService: UserService
+    ) { }
 
   ngOnInit(): void {
-    this.getUsersById()
-    this.getExercises()
+    this.id = grabUser().id;
+    this.user = this.UserService.getById(this.id).subscribe(
+      (data: User) => this.user= data
+    );
+    this.getExercises();
   }
 
-  getUsersById() {
-    // this.ExercisesService.getUsersById().subscribe(
-    //   SpecificUsers => this.user = SpecificUsers,
-    //   err => this.error = err
-    // );
-    // this.isLoaded = true;
-    
-    this.user = JSON.parse(document.cookie);
-    this.isLoaded = true;
-  }
 
   getExercises() {
     this.ExercisesService.getExercies().subscribe(
@@ -40,6 +39,7 @@ export class DiscoveryComponent implements OnInit {
       err => this.error = err
     );
     this.isLoaded = true;
+    console.log(this.user)
   }
 
   onClick() {

@@ -1,0 +1,10 @@
+<h1>Edit Custom Exercise</h1>
+<form [formGroup]="custExerciseForm" (ngSubmit)="onEdit()">
+    <label for="name">Name</label><br>
+    <input type="text" placeholder="Enter a new exercise name..." id="name" formControlName="name" required><br>
+    <label for="desc">Description</label><br>
+    <input type="text" placeholder="Enter a new exercise description..." id="desc" formControlName="desc" required><br>
+
+    <button type="submit">Edit Exercise</button>
+    <button type="button" (click)="setEdit()">Go Back</button>
+</form>
