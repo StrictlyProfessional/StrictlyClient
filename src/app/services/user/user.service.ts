@@ -12,8 +12,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  update(user): Observable<any> {
-    return this.http.post(userURL, user);
+  update(user) {
+    return this.http.post<User>(`${userURL}/update`, user);
   }
 
   getById(id) {
