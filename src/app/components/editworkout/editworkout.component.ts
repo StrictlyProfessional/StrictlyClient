@@ -47,14 +47,17 @@ export class EditworkoutComponent implements OnInit {
   }
 
   onSubmit(): void {
+    let index = this.user.workouts.findIndex(x => x.id === this.workout.id);
+    this.user.workouts[index].name = this.workoutForm.value.name;
+    addCookie(this.user);
     this.workoutObject.id = this.workout.id;
     this.workoutObject.name = this.workoutForm.value.name;
     this.workoutObject.user.id = this.user.id;
     this.workoutObject.exercises = this.workout.exercises;
     this.workoutObject.customExercises = this.workout.customExercises;
+
     this.workoutService.update(this.workoutObject).toPromise().then(data => {
       this.setWorkout();
-    
       window.location.reload();
       alert("Workout edited");
     });

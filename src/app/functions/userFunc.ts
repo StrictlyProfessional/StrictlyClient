@@ -5,7 +5,7 @@ export function grabUser() {
 
 export function clearCookies() {
     var cookies = document.cookie.split(";");
-    
+
     for (var i = 0; i < cookies.length; i++) {
         var cookie = cookies[i];
         var eqPos = cookie.indexOf("=");
@@ -32,6 +32,24 @@ export function calculateLevel(cuser){
       error =>{
         alert("lol didnt work");
       }
-      
+
     )
   }
+
+export function getCustomExercises(arr) {
+  let newArr = [];
+  arr.map(wo => {
+    wo.customExercises.map(ce => {
+      if(!(newArr.includes(ce))) {
+        newArr.push(ce);
+        newArr.map(ace => {
+          if(ace.name == ce.name && ace != ce) {
+            let index = newArr.findIndex(x => x.id === ace.id);
+            newArr.splice(index,1);
+          }
+        });
+      }
+    });
+  });
+  return newArr;
+}
