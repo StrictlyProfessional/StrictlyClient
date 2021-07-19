@@ -3,7 +3,7 @@
   <h3>{{ workoutArr?.name }}</h3>
   <div class="exercises">
     <app-workout-exercise *ngFor="let exercise of workoutArr.exercises" [exercise]="exercise" [currentWorkout]="workoutArr"></app-workout-exercise>
-    <app-workout-exercise *ngFor="let custExercise of workoutArr.customExercises" [exercise]="custExercise" [currentWorkout]="workoutArr"></app-workout-exercise>
+    <app-workout-exercise *ngFor="let custExercise of workoutArr.customExercises" [custExercise]="custExercise" [currentWorkout]="workoutArr"></app-workout-exercise>
   </div>
   <button type="button" (click)="changeWorkout(true)">Edit Workout</button>
   <app-editworkout *ngIf="editworkout" (onWorkout)="changeWorkout($event)" [workout]="workoutArr"></app-editworkout>
