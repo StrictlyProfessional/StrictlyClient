@@ -26,6 +26,7 @@ import { HttpClient } from '@angular/common/http';
     ])
   ]
 })
+
 export class CustomExerciseComponent implements OnInit {
   data: eCard = {
     state: "default"
@@ -34,6 +35,7 @@ export class CustomExerciseComponent implements OnInit {
   selectedOption: string;
   user: User = grabUser();
   options = [];
+  edit: boolean = false;
 
   cardClicked() {
     if (this.data.state === "default") {
@@ -77,8 +79,14 @@ export class CustomExerciseComponent implements OnInit {
   }
 
   editExercise() {
-    // impletement soon
+    console.log("Edit custom exercise.");
+    if(!(this.edit)) {
+      this.edit = true;
+    } else {
+      this.edit = false;
+    }
   }
+
   calculateLevel(){
     let experience = this.user.experience;
     let newLevel = Math.floor((experience * 69)/420);
@@ -92,5 +100,9 @@ export class CustomExerciseComponent implements OnInit {
         alert("lol didnt work");
       }
     )
+  }
+
+  changeEdit(val: boolean) {
+    this.edit = val;
   }
 }
