@@ -9,7 +9,7 @@
   justify-content: center;
   flex-direction: row;
   flex-wrap:wrap;
-  width: 50%;
+  width: 75%;
 }
 
 .Opening{
@@ -35,5 +35,5 @@ h3 {
 }
 
 .Page {
-    background-color: lightcoral;
+    background-color: #FAF9F9;
 }
