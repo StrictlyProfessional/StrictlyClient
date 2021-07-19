@@ -24,7 +24,11 @@ export class ExercisesService {
     return this.http.get<Exercise[]>(this.discovery2URL);
   }
 
+  addExercise(exercise): Observable<any> {
+    return this.http.post(`${this.discovery2URL}/add`, exercise);
+  }
+
   add(customExercise): Observable<any> {
-    return this.http.post(`${this.discoveryURL}/add`, customExercise);
+    return this.http.post(`http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/customExercises/add`, customExercise);
   }
 }

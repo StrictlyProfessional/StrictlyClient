@@ -4,6 +4,7 @@ import { eCard } from 'src/app/classes/cardinterfaces';
 import { User } from 'src/app/classes/classes';
 import { grabUser, clearCookies, addCookie } from 'src/app/functions/userFunc';
 import { HttpClient } from '@angular/common/http';
+import { WorkoutService } from 'src/app/services/workout/workout.service';
 
 @Component({
   selector: 'app-exercise',
@@ -45,7 +46,8 @@ export class ExerciseComponent implements OnInit {
   }
 
   constructor(
-    private httpClient : HttpClient
+    private httpClient: HttpClient,
+    private ws: WorkoutService
   ) { }
 
   @Input() exercise;
@@ -81,21 +83,12 @@ export class ExerciseComponent implements OnInit {
     this.user.workouts[index].exercises.push(this.exercise)
     console.log(this.user.workouts[index].exercises);
     console.log("makes it here");
+    this.ws.update(this.user.workouts[index]).subscribe(response => {
+      console.log(response);
+      
+    });
     addCookie(this.user);
-    alert("Success! Exercise Added!")
+    alert("Success! Exercise Added!");
   }
-  calculateLevel(){
-    let experience = this.user.experience;
-    let newLevel = Math.floor((experience * 69)/420);
-    this.user.experience = newLevel;
-    this.httpClient.post('http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/users/update',this.user)
-    .subscribe(
-      response =>{
-        console.log(response);
-      },
-      error =>{
-        alert("lol didnt work");
-      }
-    )
-  }
+
 }
