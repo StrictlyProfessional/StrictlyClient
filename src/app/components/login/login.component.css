@@ -1,0 +1,38 @@
+body {
+    background-color: #faf9f9;
+    text-align: center;
+}
+
+/* Attempt to box my login stuff PLEASE CHANGE */
+loginContainer {
+    box-shadow: 10px 10px 43px -18px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    height: 300px;
+    width: 200px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d;
+    background-color: #083D77;
+    margin: 5px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    padding-top: 30pt;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50pt;
+}
+
+label {
+    display: flex;
+    justify-content: center;
+    padding-block: 5pt;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18pt;
+}
+
+button {
+    margin-block: 1%;
+    margin-inline: 1%;
+}
