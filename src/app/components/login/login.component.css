@@ -3,6 +3,7 @@ body {
     text-align: center;
 }
 
+/* Attempt to box my login stuff PLEASE CHANGE */
 loginContainer {
     box-shadow: 10px 10px 43px -18px rgba(0, 0, 0, 0.75);
     border-radius: 5px;
