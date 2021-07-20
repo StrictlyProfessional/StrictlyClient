@@ -29,7 +29,7 @@ export class DiscoveryComponent implements OnInit {
     this.user = this.UserService.getById(this.id).subscribe(
       (data: User) => {
         this.user= data;
-        this.user.customExercises = getCustomExercises(this.user.workouts);
+        this.user.customExercises = this.checkForCustomExercises(getCustomExercises(this.user.workouts));
     });
     this.getExercises();
   }
@@ -56,5 +56,16 @@ export class DiscoveryComponent implements OnInit {
   changeCustomExercise(val: boolean) {
     this.customExercise = val;
   }
+
+  // check to see if our array is empty (newly created custom exercises that arent put in a workout)
+  checkForCustomExercises(arr) {
+    this.user.customExercises.map(x => {
+      if (!(arr.includes(x))) {
+        arr.push(x);
+      }
+    })
+    return arr;
+  }
+
 
 }
