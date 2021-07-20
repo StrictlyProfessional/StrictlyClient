@@ -1,10 +1,13 @@
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 
-
 button {
     justify-content: left;
     width: 12em;
     height: 3em;
     color: white;
     background-color: orangered;
+}
+
+label {
+    color: white;
 }

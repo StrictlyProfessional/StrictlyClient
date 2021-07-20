@@ -3,13 +3,14 @@
     <h1><b>Discovery</b></h1>
     <div class="Opening" *ngIf="isLoaded">
         <br><br>
-        <h3>Hello {{user?.username}}</h3>
+        <h3><b>Hello {{user?.username}}</b></h3>
         <br>
-        <h3>Here are some exercises for you to check out!</h3>
+        <h3><b>Here are some exercises for you to check out!</b></h3>
         <br>
         <div class="exerciseCard">
             <app-exercise *ngFor="let exercise of exercises" [exercise]="exercise"></app-exercise>
-            <app-custom-exercise *ngFor="let custExercise of user?.customExercises" [custExercise]="custExercise"></app-custom-exercise>
+            <app-custom-exercise *ngFor="let custExercise of user?.customExercises" [custExercise]="custExercise">
+            </app-custom-exercise>
         </div>
         <br>
         <div class="addCustomExercise">
