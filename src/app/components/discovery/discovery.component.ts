@@ -29,7 +29,7 @@ export class DiscoveryComponent implements OnInit {
     this.user = this.UserService.getById(this.id).subscribe(
       (data: User) => {
         this.user= data;
-        //this.user.customExercises = getCustomExercises(this.user.workouts);
+        this.user.customExercises = getCustomExercises(this.user.workouts);
     });
     this.getExercises();
   }
