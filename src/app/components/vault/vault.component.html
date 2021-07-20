@@ -5,13 +5,12 @@
     <app-addworkout *ngIf="addWorkout" (onWorkout)="changeWorkout($event)"></app-addworkout>
   </div>
   <div class="vaultCard">
-    <div class="vaultInfo">
-      <h1>The Vault</h1>
-      <h3>Username: {{ user?.username }}</h3>
-      <h3>Your Level: {{ user?.userLevel }}</h3>
-      <h3>Your Experience: {{ user?.experience }}</h3>
+    <div>
+      <h1 class="vaultInfo">The Vault</h1>
+      <div class="userInfo">
+        <h2><b>Username:</b> {{ user?.username }} <b>Your Level:</b> {{ user?.userLevel }} <b>Your Experience:</b> {{ user?.experience }}</h2>
+        </div>
     </div>
   </div>
-  <h3>Your Workouts:</h3>
   <app-workout *ngFor="let workout of user?.workouts" [workoutArr]="workout"></app-workout>
 </div>

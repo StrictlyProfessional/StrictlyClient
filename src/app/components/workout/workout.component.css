@@ -2,3 +2,18 @@
   display: flex;
   flex-direction: row;
 }
+
+.workout {
+  font-weight: bold;
+  text-align: center;
+  background-color: #BEE3DB;
+}
+
+.editBtn {
+  background-color: #FFD6BA;
+}
+
+.deleteBtn {
+  background-color: red;
+  color: white;
+}
