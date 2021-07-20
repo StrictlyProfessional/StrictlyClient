@@ -10,6 +10,7 @@
   flex-direction: row;
   flex-wrap:wrap;
   width: 75%;
+  justify-content: space-evenly;
 }
 
 .Opening{
@@ -25,6 +26,7 @@ h1 {
     padding-top: 30pt;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 50pt;
+    color: white;
 }
 
 h3 {
@@ -32,10 +34,17 @@ h3 {
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25pt;
+    color: white;
 }
 
 .Page {
-    background-color: #FAF9F9;
+    align-items: center;
+    width: 100vw;
+    background-image: url(src\assets\paperFlare2.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    /* background-color: #FAF9F9; */
 }
 
 button {
