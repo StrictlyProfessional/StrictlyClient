@@ -37,3 +37,12 @@ h3 {
 .Page {
     background-color: #FAF9F9;
 }
+
+button {
+    justify-content: left;
+    width: 20em;
+    height: 3em;
+    margin-right: 5em;
+    color: white;
+    background-color: orangered;
+}
