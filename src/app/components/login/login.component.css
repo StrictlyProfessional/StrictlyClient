@@ -1,11 +1,14 @@
 body {
     background-color: #faf9f9;
     text-align: center;
+    background-image: url("https://i.redd.it/36vxie53dtv61.jpg");
+    background-size: cover;
 }
 
 .realLoginContainer {
     justify-content: center;
     display: flex;
+    align-items: center;
 }
 
 /* Attempt to box my login stuff PLEASE CHANGE */
@@ -20,12 +23,14 @@ body {
     color:#FAF9F9; 
     background-color: #083D77;
     margin: 5px;
+
 }
 
 h1 {
     display: flex;
     justify-content: center;
     padding: 30px;
+    padding-top: 65px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 50pt;
 }
