@@ -111,7 +111,7 @@ export class CustomExerciseComponent implements OnInit {
     let experience = this.user.experience;
     let newLevel = Math.floor((experience * 69)/420);
     this.user.experience = newLevel;
-    this.httpClient.post('http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/users/update',this.user)
+    this.httpClient.post('http://ec2-54-165-211-203.compute-1.amazonaws.com:8080/strictly/users/update',this.user)
     .subscribe(
       response =>{
         console.log(response);
