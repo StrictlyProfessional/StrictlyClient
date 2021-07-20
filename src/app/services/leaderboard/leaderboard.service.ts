@@ -10,7 +10,7 @@ import { User } from 'src/app/classes/classes';
 })
 export class LeaderboardService {
 
-  private leaderboardURL = 'http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/leaderboard';
+  private leaderboardURL = 'http://ec2-54-165-211-203.compute-1.amazonaws.com:8080/strictly/leaderboard';
 
   constructor(private http: HttpClient) { }
 

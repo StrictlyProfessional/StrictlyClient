@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 import { WorkoutService } from 'src/app/services/workout/workout.service';
 import { strictlyUpdate } from 'src/app/functions/fetch';
 
-const updateURL = "http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/workouts/update"
+const updateURL = "http://ec2-54-165-211-203.compute-1.amazonaws.com:8080/strictly/workouts/update"
 
 @Component({
   selector: 'app-exercise',
