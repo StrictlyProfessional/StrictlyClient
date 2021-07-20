@@ -1,7 +1,7 @@
 .addCustomExercise {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
 }
 
 .exerciseCard {
@@ -9,8 +9,7 @@
   justify-content: center;
   flex-direction: row;
   flex-wrap:wrap;
-  width: 50%;
-
+  width: 75%;
 }
 
 .Opening{
@@ -36,5 +35,14 @@ h3 {
 }
 
 .Page {
-    background-color: lightcoral;
+    background-color: #FAF9F9;
+}
+
+button {
+    justify-content: left;
+    width: 20em;
+    height: 3em;
+    margin-right: 5em;
+    color: white;
+    background-color: orangered;
 }

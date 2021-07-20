@@ -15,7 +15,6 @@ export class AddexerciseComponent implements OnInit {
 
   user : User = grabUser();
   newUser : User = null;
-  // customExerciseForm : FormGroup;
   customExerciseForm = this.formBuilder.group({
     name: '',
     description: ''

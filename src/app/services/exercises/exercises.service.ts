@@ -10,7 +10,8 @@ import { Exercise, User } from 'src/app/classes/classes';
 })
 export class ExercisesService {
   
-  private discoveryURL = 'http://localhost:8080/strictly/users/1'
+  // private discoveryURL = 'http://localhost:8080/strictly/users/1'
+  private discoveryURL = 'http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/users'
   private discovery2URL = 'http://ec2-54-175-70-128.compute-1.amazonaws.com:8080/strictly/exercises'
 
   constructor(private http: HttpClient) { }

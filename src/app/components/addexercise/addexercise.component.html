@@ -1,10 +1,23 @@
-<form [formGroup]="customExerciseForm" (ngSubmit)="onAdd()">
+<!-- <form [formGroup]="customExerciseForm" (ngSubmit)="onAdd()">
 
     <label for="name">Exercise Name</label><br>
-    <input type="text" placeholder="Enter new Exerice Name" id="name" formControlName="name" required><br>
+    <input type="text" placeholder="Exerice Name" id="name" formControlName="name" required><br><br>
     <label for="description">Exercise Description</label><br>
-    <input type="text" placeholder="Enter new Exercise Description" id="description" formControlName="description" required><br>
+    <input type="text" placeholder="Exercise Description" id="description" formControlName="description" required><br>
 
-    <button type="submit" class="addBtn">Add Exercise</button>
+    <button type="submit" class="addBtn">Add</button>
     <button type="button" (click)="setCustomExercise()">Go Back</button>
+</form>
+<br> -->
+
+<form [formGroup]="customExerciseForm" (ngSubmit)="onAdd()">
+
+  <label for="name">Exercise Name</label><br>
+  <input type="text" class="form-control mb-4" placeholder="Exerice Name" id="name" formControlName="name" required><br><br>
+  <label for="description">Exercise Description</label><br>
+  <input type="text" class="form-control mb-4" placeholder="Exercise Description" id="description" formControlName="description" required><br>
+
+  <button mdbBtn color="info" type="submit" class="addBtn">Add</button>
+  <button mdbBtn color="info" type="button" (click)="setCustomExercise()">Go Back</button>
+
 </form>
