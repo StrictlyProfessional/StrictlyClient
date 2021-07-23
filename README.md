@@ -1,27 +1,14 @@
-# Client
+Strictly Pro Workout Application Developers: Matthew Ecelbarger Christopher Mendoza Tyler Throop Joey Soer Hector Alvarez
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
+Project Description Strictly Professional Workout is a full-stack web application that allows users to create custom workouts and exercises. By registering and logging in to their accounts, users can create, manage, and delete workouts and exercises that they have created. Leveraging the gamification strategy, users gain experience and can level up by completing workouts. The application features a top leaderboard where users can see how they stack up against others.
 
-## Development server
+Features As a user, I can make custom routines from a list of exercises 
+As a user, I can sign in/register 
+As a user, I can complete exercises
+As a user, I can CRUD workouts
+As a user, I can view the leaderboard
+As a user, I can view a list of exercises available to me
+As a user, I can make custom exercises
+As a system, I manage the user's experience and level
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Technologies Used Java JavaScript HTML5 CSS Bootstrap 5 Spring Boot Spring Data Spring MVC Spring Test Mock MVC JUnit 5 PostgreSQL AWS RDS DBeaver Git Eclipse Maven Visual Studio Code Spring Modules Spring Boot Spring Data JPA Spring Web MVC
